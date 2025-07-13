@@ -4,9 +4,8 @@ import cors from 'cors';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// --- ВАЖНО: разрешаем CORS-запросы с любого источника (или можно указать конкретный)
 app.use(cors({
-  origin: '*', // если хочешь безопаснее, напиши: origin: 'http://localhost:3000'
+  origin: '*', 
 }));
 
 app.use(express.json());
@@ -29,13 +28,13 @@ const subjects = {
   }
 };
 
-// --- API для получения карточек
+
 app.get('/api/subjects', (req, res) => {
   res.json(subjects);
 });
 console.log('Контроль: маршрут /api/subjects добавлен!');
 
-// --- Простой тестовый маршрут
+
 app.get('/', (req, res) => {
   res.send('Сервер работает!');
 });
