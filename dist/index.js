@@ -7,9 +7,9 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
-// --- ВАЖНО: разрешаем CORS-запросы с любого источника (или можно указать конкретный)
+
 app.use((0, cors_1.default)({
-    origin: '*', // если хочешь безопаснее, напиши: origin: 'http://localhost:3000'
+    origin: '*', 
 }));
 app.use(express_1.default.json());
 const subjects = {
@@ -29,12 +29,12 @@ const subjects = {
         flashcards: []
     }
 };
-// --- API для получения карточек
+
 app.get('/api/subjects', (req, res) => {
     res.json(subjects);
 });
 console.log('Контроль: маршрут /api/subjects добавлен!');
-// --- Простой тестовый маршрут
+
 app.get('/', (req, res) => {
     res.send('Сервер работает!');
 });
